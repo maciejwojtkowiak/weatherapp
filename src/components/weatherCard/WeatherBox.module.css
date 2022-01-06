@@ -5,12 +5,5 @@
     display: flex;
 }
 
-.weatherDataBox {
-    flex: 4;
-    background-color: red;
-}
 
-.weatherInputBox {
-    flex: 3;
-    background-color: brown;
-} 
+
