@@ -2,7 +2,7 @@
     width: 40vw;
     height: 70vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 

@@ -7,8 +7,9 @@ const WeatherBox = (props) => {
     return(
         <Card>
             <div className={styles.weatherBox} >
-                <WeatherDataBox />
                 <WeatherInputBox/>
+                <WeatherDataBox />
+                
                 
             </div>
         </Card>
