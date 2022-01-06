@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const WeatherContext = React.createContext({
-    cityObject: null
+    city: null
 })
 
 

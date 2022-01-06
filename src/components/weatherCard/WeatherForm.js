@@ -9,6 +9,8 @@ const WeatherForm = (props) => {
     const locationInputRef = useRef()
     const weatherCtx = useContext(WeatherContext)
     const api_key = '5fc53b4163498db65d6329e64f584aea'
+
+
     const onSubmitHandler =  (e) =>{
         city = locationInputRef.current.value
         e.preventDefault()
@@ -18,9 +20,8 @@ const WeatherForm = (props) => {
             return data
             
           }
-          // użyj useState
           fetchCity(city).then(res => {
-              console.log(res)
+              console.log(res.weather[0].icon)
               weatherCtx.setCity(res)
           })
           
@@ -30,7 +31,6 @@ const WeatherForm = (props) => {
         <React.Fragment>
             <form onSubmit={onSubmitHandler}>
                 <input ref={locationInputRef} type="text" />
-                <p>{city}</p>
                 <button type='submit'>Get weather</button>
             </form>
             

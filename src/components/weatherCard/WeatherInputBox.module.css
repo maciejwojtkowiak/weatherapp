@@ -1,4 +1,4 @@
 .weatherInputBox {
     flex: 3;
-    background-color: brown;
+    border-left: 2px black solid;
 } 

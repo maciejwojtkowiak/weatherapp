@@ -6,8 +6,12 @@ const WeatherDataBox = (props) => {
     const isClicked = true
     return(
         <React.Fragment>
-            { weatherCtx.city && <div className={styles.weatherDataBox}><p>{weatherCtx.city.id}</p></div>}
-             {!weatherCtx.city && <p>Hello</p>}
+            { weatherCtx.city && 
+            <div className={styles.weatherDataBox}>
+                <img src= {`http://openweathermap.org/img/wn/${weatherCtx.city.weather[0].icon}.png `}/>
+                <p>{weatherCtx.city.id}</p>
+            </div>}
+             {!weatherCtx.city && <div className={styles.weatherDataBox}><p></p></div>}
         </React.Fragment>
         
     )
