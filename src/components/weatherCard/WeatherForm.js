@@ -1,13 +1,17 @@
 import styles from './WeatherForm.module.css'
 import React from 'react'
 import { useRef } from 'react'
+import { useContext } from 'react'
+import { WeatherContext } from '../../store/weather-context'
 
-const WeatherForm = () => {
+const WeatherForm = (props) => {
     const locationInputRef = useRef()
+    const weatherCtx = useContext(WeatherContext)
     const onSubmitHandler = (e) =>{
         e.preventDefault()
-        fetch('api.openweathermap.org/data/2.5/weather?q=' + locationInputRef.current.value + '&appid=6759a0b0331f10b0f104c6ff1841a20e')
-        .then(res => res.json()).then(data => console.log(data))
+        const city = locationInputRef.current.value
+        weatherCtx.fetchCity(city)
+        
     }   
 
     return(

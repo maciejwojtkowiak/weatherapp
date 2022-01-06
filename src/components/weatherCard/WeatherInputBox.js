@@ -1,7 +1,7 @@
 import WeatherForm from "./WeatherForm"
 import styles from './WeatherInputBox.module.css'
 
-const WeatherInputBox = () => {
+const WeatherInputBox = (props) => {
     return (
         <div className={styles.weatherInputBox}> 
             <WeatherForm /> 
