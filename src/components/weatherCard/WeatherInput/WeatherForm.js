@@ -1,7 +1,7 @@
 import styles from './WeatherForm.module.css'
 import React from 'react'
 import { useRef} from 'react'
-import useHttp from '../hooks/use-http'
+import useHttp from '../../hooks/use-http'
 
 const WeatherForm = (props) => {
    
@@ -31,12 +31,12 @@ const WeatherForm = (props) => {
             <form onSubmit={onSubmitHandler}>
                 <div className={styles.formContainer}>   
                     <input ref={locationInputRef} type="text" />
-                    <button type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
+                    <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
                 </div>
             </form>
             <form onSubmit={onSubmitHandlerRandom}>
                 <div className={styles.formContainer}>   
-                    <button type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
+                    <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
                 </div>
             </form>
             

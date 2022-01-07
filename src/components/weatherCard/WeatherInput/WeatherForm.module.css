@@ -1,0 +1,16 @@
+.formContainer {
+    display: flex;
+    gap: 2rem;
+    margin-right: 2rem;
+   
+}
+
+.formButton {
+    border: none;
+    background-image: linear-gradient(to right, rgb(97, 98, 100), rgb(186, 185, 194));
+    color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+}

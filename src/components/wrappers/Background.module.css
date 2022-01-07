@@ -1,0 +1,13 @@
+.Background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(248, 245, 245);
+    height: 100%;
+    width: 100%;
+    background-image: url('../../videos/gif.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
