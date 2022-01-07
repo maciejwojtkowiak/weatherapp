@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import WeatherContextProvider from './store/weather-context'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <WeatherContextProvider>
+     <App />,
+  </WeatherContextProvider>,
   document.getElementById('root')
 );
 

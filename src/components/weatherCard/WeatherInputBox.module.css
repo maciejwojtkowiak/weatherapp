@@ -1,0 +1,7 @@
+.weatherInputBox {
+    height: 8%;
+    border-bottom: 2px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 

@@ -1,16 +1,10 @@
 .weatherBox {
     width: 40vw;
     height: 70vh;
-    background-color: aqua;
     display: flex;
+    flex-direction: column;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
-.weatherDataBox {
-    flex: 4;
-    background-color: red;
-}
 
-.weatherInputBox {
-    flex: 3;
-    background-color: brown;
-} 
+
