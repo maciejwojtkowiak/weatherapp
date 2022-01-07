@@ -28,17 +28,20 @@ const WeatherForm = (props) => {
 
     return(
         <React.Fragment>
-            <form onSubmit={onSubmitHandler}>
-                <div className={styles.formContainer}>   
-                    <input ref={locationInputRef} type="text" />
-                    <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
-                </div>
-            </form>
-            <form onSubmit={onSubmitHandlerRandom}>
-                <div className={styles.formContainer}>   
-                    <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
-                </div>
-            </form>
+            <div className={styles.formsContainer}>
+                <form onSubmit={onSubmitHandler}>
+                    <div className={styles.formContainer}>   
+                        <input ref={locationInputRef} type="text" />
+                        <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
+                    </div>
+                </form>
+                <form onSubmit={onSubmitHandlerRandom}>
+                    <div className={styles.formContainer}>   
+                        <button className={styles.formButton} type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
+                    </div>
+                </form>
+            </div>
+            
             
         </React.Fragment>
         
