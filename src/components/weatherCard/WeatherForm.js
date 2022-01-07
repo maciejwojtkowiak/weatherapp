@@ -1,8 +1,6 @@
 import styles from './WeatherForm.module.css'
 import React from 'react'
-import { useRef, useState } from 'react'
-import { useContext } from 'react'
-import { WeatherContext } from '../../store/weather-context'
+import { useRef} from 'react'
 import useHttp from '../hooks/use-http'
 
 const WeatherForm = (props) => {
@@ -11,6 +9,8 @@ const WeatherForm = (props) => {
     const locationInputRef = useRef()
     const api_key = '5fc53b4163498db65d6329e64f584aea'
     const {isLoading, getCityData} = useHttp()
+
+
     const onSubmitHandler =  (e) =>{
         e.preventDefault()
         getCityData(`https://api.openweathermap.org/data/2.5/weather?q=${locationInputRef.current.value.trim()}&units=metric&appid=${api_key}`)
@@ -18,14 +18,13 @@ const WeatherForm = (props) => {
 
     const onSubmitHandlerRandom = (e) => {
         e.preventDefault();
-       
-
-        console.log(navigator.geolocation.getCurrentPosition((pos) => {
+       navigator.geolocation.getCurrentPosition((pos) => {
             const {latitude, longitude} = pos.coords
-            console.log(latitude, longitude)
-        }))
-
+            getCityData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}`)
+        })
     }
+
+
 
     return(
         <React.Fragment>
