@@ -8,12 +8,30 @@ const WeatherDetailBox = () => {
     const weatherCtx = useContext(WeatherContext)
     return (
         <div className={styles.weatherDetailBox}>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
-            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <div>
+                <label>temp</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
+            <div>
+                <label>pressure</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
+            <div>
+                <label>wind</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
+            <div>
+                <label>Feels like</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
+            <div>
+                <label>temp_max</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
+            <div>
+                <label>temp_min</label>
+                <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            </div>
         </div>
     )
 }

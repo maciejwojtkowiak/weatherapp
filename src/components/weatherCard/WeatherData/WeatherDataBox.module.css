@@ -1,10 +1,10 @@
 .weatherDataBox {
-    flex: 5;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+    overflow: visible;
     
 }
 
@@ -20,11 +20,25 @@
 }
 
 .description {
-    font-size: 3rem;
+    font-size: 3.8rem;
+    font-weight: 900;
+}
+
+.description:last-of-type {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+}
+
+.icon > svg {
+    width: 500px;
 }
 
 
-.icon {
-    width: 10rem;
-    height: 10rem;
-}
+
+
+
+
+
+
+
+
