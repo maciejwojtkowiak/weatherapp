@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { WeatherContext } from "../../store/weather-context"
-import { useContext } from "react"
+import { useContext, } from "react"
 
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -23,6 +23,7 @@ const useHttp = () => {
             fetchCity().then(res => {
                 console.log(res)
                 weatherCtx.setCity(res)
+                weatherCtx.setId(res.weather[0].id)
                 setIsLoading(false)
                 
             })
@@ -31,12 +32,14 @@ const useHttp = () => {
               setIsLoading(false)
           }
 
+
     }
        
           return {
               isLoading,
               error,
-              getCityData
+              getCityData,
+              
           }
     }
 

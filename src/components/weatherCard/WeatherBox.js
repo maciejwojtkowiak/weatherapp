@@ -1,18 +1,19 @@
-import Card from "../wrappers/Card"
+import Background from "../wrappers/Background"
 import styles from './WeatherBox.module.css'
-import WeatherDataBox from "./WeatherDataBox"
-import WeatherInputBox from "./WeatherInputBox"
+import WeatherDataBox from "./WeatherData/WeatherDataBox"
+import WeatherInputBox from "./WeatherInput/WeatherInputBox"
 
 const WeatherBox = (props) => {
     return(
-        <Card>
+        <Background>
+            <WeatherInputBox/>
             <div className={styles.weatherBox} >
-                <WeatherInputBox/>
+                
                 <WeatherDataBox />
                 
                 
             </div>
-        </Card>
+        </Background>
     )
 }
 

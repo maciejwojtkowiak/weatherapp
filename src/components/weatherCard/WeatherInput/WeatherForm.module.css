@@ -1,0 +1,33 @@
+
+.formsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+   
+}
+
+.formContainer input {
+    padding: 2rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+.formButton {
+    border: none;
+    background-image: linear-gradient(to right, rgb(97, 98, 100), rgb(122, 122, 128));
+    color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: .5rem;
+    width: 100%;
+}
