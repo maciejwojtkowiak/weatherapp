@@ -8,13 +8,12 @@ const WeatherForm = (props) => {
    
     const locationInputRef = useRef()
     const api_key = '5fc53b4163498db65d6329e64f584aea'
-    const {isLoading, getCityData, id} = useHttp()
+    const {isLoading, getCityData} = useHttp()
 
 
     const onSubmitHandler =  (e) =>{
         e.preventDefault()
         getCityData(`https://api.openweathermap.org/data/2.5/weather?q=${locationInputRef.current.value.trim()}&units=metric&appid=${api_key}`)
-        console.log(id)
     }   
 
     const onSubmitHandlerRandom = (e) => {

@@ -9,6 +9,11 @@ const WeatherDetailBox = () => {
     return (
         <div className={styles.weatherDetailBox}>
             <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
+            <p className={styles.description}>{weatherCtx.city.main.temp}°C</p>
         </div>
     )
 }
