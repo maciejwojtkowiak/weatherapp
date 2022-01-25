@@ -3,11 +3,6 @@ import React from 'react';
 import WeatherBox from './components/weatherCard/WeatherBox'
 
 function App() {
-  
-
-
- 
-  
    
 
   return (

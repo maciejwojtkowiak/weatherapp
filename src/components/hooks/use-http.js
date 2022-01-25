@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { WeatherContext } from "../../store/weather-context"
-import { useContext, useCallback } from "react"
+import { useContext, } from "react"
 
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const weatherCtx = useContext(WeatherContext)
 
-    const getCityData = useCallback((url) => {
+    const getCityData = (url) => {
         setIsLoading(true)
         const fetchCity = async () => {
             const response  = await fetch(url)
@@ -23,6 +23,7 @@ const useHttp = () => {
             fetchCity().then(res => {
                 console.log(res)
                 weatherCtx.setCity(res)
+                weatherCtx.setId(res.weather[0].id)
                 setIsLoading(false)
                 
             })
@@ -32,12 +33,13 @@ const useHttp = () => {
           }
 
 
-    })
+    }
        
           return {
               isLoading,
               error,
-              getCityData
+              getCityData,
+              
           }
     }
 

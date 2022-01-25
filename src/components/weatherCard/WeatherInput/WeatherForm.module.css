@@ -1,3 +1,9 @@
+
+.formsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .formContainer {
     display: flex;
     flex-direction: row;
@@ -7,14 +13,11 @@
     margin-bottom: 2rem;
    
 }
-.formsContainer {
-    display: flex;
-    flex-direction: column;
-}
 
 .formContainer input {
     padding: 2rem;
     border-radius: 2rem;
+    font-size: 2rem;
 }
 
 .formButton {
