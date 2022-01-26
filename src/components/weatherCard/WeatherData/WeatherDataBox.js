@@ -49,23 +49,26 @@ const WeatherDataBox = () => {
         if ((weatherCtx.id >= 801) && (weatherCtx.id <= 804)) icon=<WiCloudy viewBox={VIEWBOX}  size={ICON_SIZE}  /> // Clouds
 
     }
+
+    let content;
+
+    if (weatherCtx.error) {
+        content = "City not found, try again."
+    }
+
+   
     
 
     return(
         <React.Fragment>
-            { weatherCtx.city && 
-            <React.Fragment>
+            {content}
+            { weatherCtx.city && !weatherCtx.error && 
                 <div className={styles.weatherDataBox}>
-                <div className={styles.icon} >{icon}</div>
-                <p className={styles.description}>{weatherCtx.city.name}</p>
-                <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
-                <WeatherDetailBox />
+                    <div className={styles.icon} >{icon}</div>
+                    <p className={styles.description}>{weatherCtx.city.name}</p>
+                    <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
+                    <WeatherDetailBox />
                 </div>
-
-                
-            </React.Fragment>
-            
-            
             }
 
              {!weatherCtx.city && <div className={styles.weatherDataBox}><p></p></div>}
