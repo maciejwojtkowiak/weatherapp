@@ -61,7 +61,7 @@ const WeatherDataBox = () => {
 
     return(
         <React.Fragment>
-            {content}
+            {weatherCtx.error && <div className={styles.error}>{content}</div>}
             { weatherCtx.city && !weatherCtx.error && 
                 <div className={styles.weatherDataBox}>
                     <div className={styles.icon} >{icon}</div>

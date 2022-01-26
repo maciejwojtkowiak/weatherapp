@@ -1,8 +1,4 @@
 
-.formsContainer {
-    display: flex;
-    flex-direction: column;
-}
 
 .formContainer {
     display: flex;
@@ -12,6 +8,13 @@
     margin-right: 2rem;
     margin-bottom: 2rem;
    
+}
+
+@media  screen and  (max-width: 35em)  { 
+    .formContainer {
+        width: 50%;
+        
+    }
 }
 
 .formContainer input {
