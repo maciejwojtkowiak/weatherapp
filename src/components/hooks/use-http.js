@@ -7,29 +7,28 @@ const useHttp = () => {
     const [error, setError] = useState('')
     const weatherCtx = useContext(WeatherContext)
 
-    const getCityData = (url) => {
+    const getCityData = async (url) => {
+        setError(false)
         setIsLoading(true)
-        const fetchCity = async () => {
-            const response  = await fetch(url)
-            if (!response.ok) {
-                throw new Error('City was not found.')
-            }
-            const data = await response.json()
-            return data
-            
-          }
+        
 
           try {
-            fetchCity().then(res => {
-                console.log(res)
-                weatherCtx.setCity(res)
-                weatherCtx.setId(res.weather[0].id)
+                const response  = await fetch(url)
+                if (!response.ok) {
+                    setIsLoading(false)
+                    setError(true)
+                    throw new Error('City was not found.')
+                }
+                const data = await response.json()
+                console.log(data)
+                weatherCtx.setCity(data)
+                weatherCtx.setId(data.weather[0].id)
                 setIsLoading(false)
                 
-            })
           } catch (err) {
-              console.log(err)
               setIsLoading(false)
+              setError(err.message || 'Something went wrong')
+              
           }
 
 
