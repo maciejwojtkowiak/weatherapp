@@ -1,1 +1,3 @@
 small: 35em
+medium: 62.5em
+medium-large: 90em

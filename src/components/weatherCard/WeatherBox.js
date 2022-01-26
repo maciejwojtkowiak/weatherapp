@@ -8,10 +8,7 @@ const WeatherBox = (props) => {
         <Background>
             <WeatherInputBox/>
             <div className={styles.weatherBox} >
-                
                 <WeatherDataBox />
-                
-                
             </div>
         </Background>
     )
