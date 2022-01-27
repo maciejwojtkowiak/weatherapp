@@ -3,7 +3,6 @@ html {
   width: 100%;
   font-size: 62.5%;
   box-sizing: border-box;
-  margin-bottom: 0;
 }
 
 * {
@@ -22,15 +21,14 @@ body {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
   
 }
 
 
 
 #root {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 0;
   
   
 }

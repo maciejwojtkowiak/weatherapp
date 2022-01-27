@@ -5,15 +5,12 @@ export const WeatherContext = React.createContext({
     id:null
 })
 
-
 const WeatherContextProvider = (props) => {
     const [city, setCity] = useState('')
     const [id, setId] = useState('')
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
    
-     
-
       return (
           <WeatherContext.Provider value={{city, setCity, id, setId, error, setError, loading, setLoading}}>
               {props.children}

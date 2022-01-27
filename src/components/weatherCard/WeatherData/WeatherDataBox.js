@@ -4,7 +4,6 @@ import { WeatherContext } from '../../../store/weather-context'
 import WeatherDetailBox from './WeatherDetailBox'
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import './WeatherDataBox.css'
-import useHttp from '../../hooks/use-http'
 import {
     WiDayThunderstorm, 
     WiDayRainMix, 
@@ -69,7 +68,6 @@ const WeatherDataBox = () => {
     }
 
    
-
     if (weatherCtx.error) {
         content = (<p>City not found, try again.</p>)
     }
@@ -89,11 +87,6 @@ const WeatherDataBox = () => {
         )
     }
     
-
-
-   
-    
-
     return(
         <React.Fragment>
             <div className={styles.weatherDataBox}>

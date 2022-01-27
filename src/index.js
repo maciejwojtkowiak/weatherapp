@@ -6,7 +6,7 @@ import WeatherContextProvider from './store/weather-context'
 
 ReactDOM.render(
   <WeatherContextProvider>
-     <App />,
+     <App />
   </WeatherContextProvider>,
   document.getElementById('root')
 );
