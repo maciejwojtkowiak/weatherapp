@@ -74,22 +74,19 @@ const WeatherDataBox = () => {
 
     if (success) {
         content = (
-                <div>
-                <div className={styles.icon} >{icon}</div>
-                    <p className={styles.description}>{weatherCtx.city.name}</p>
-                    <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
-                <WeatherDetailBox />
-                </div>
-            
-                    
-            
+                <React.Fragment>
+                     <div className={styles.icon} >{icon}</div>
+                        <p className={styles.description}>{weatherCtx.city.name}</p>
+                        <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
+                    <WeatherDetailBox />
+                </React.Fragment>
             
         )
     }
     
     return(
         <React.Fragment>
-            <div className={styles.weatherDataBox}>
+           
             <CSSTransition mountOnEnter unmountOnExit in={error} timeout={500} classNames='error' 
             onEnter={() => {
                 if (isInitial) {
@@ -120,7 +117,7 @@ const WeatherDataBox = () => {
             }}>
             <div className={styles.weatherDataBox}>{content}</div>
             </CSSTransition>
-            </div>
+            
         </React.Fragment>
             
        
