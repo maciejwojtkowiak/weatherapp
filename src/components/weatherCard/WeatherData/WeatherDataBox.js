@@ -71,7 +71,7 @@ const WeatherDataBox = () => {
                 </div>
             }
 
-             {!weatherCtx.city && <div className={styles.weatherDataBox}><p></p></div>}
+            
         </React.Fragment>
         
     )

@@ -7,11 +7,6 @@
     
 }
 
-@media  screen and  (max-width: 35em)  { 
-    .weatherDataBox {
-        
-    }
-}
 
 .city {
     font-size: 5rem;
