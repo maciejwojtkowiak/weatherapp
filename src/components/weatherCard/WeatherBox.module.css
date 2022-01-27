@@ -1,10 +1,44 @@
 .weatherBox {
-    width: 50vw;
-    height: 70vh;
+    width: 55vw;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     background-color: rgba(255, 255, 255, 0.651);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media  screen and  (max-width: 35em)  { 
+    .weatherBox {
+        width: 100%;
+        min-height: 20vh;
+        max-height: auto;
+        box-shadow:none;
+        
+    }
+}
+
+@media  screen and  (max-width: 80em)  { 
+    .weatherBox {
+        width: 90%;
+        min-height: 20vh;
+        max-height: auto;
+        padding-bottom: 2rem;
+
+        
+    }
+}
+
+@media  screen and  (max-width: 90em)  { 
+    .weatherBox {
+        width: 75%;
+        min-height: 20vh;
+        max-height: auto;
+        padding-bottom: 2rem;
+
+        
+    }
 }
 
 

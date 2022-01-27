@@ -9,11 +9,12 @@ export const WeatherContext = React.createContext({
 const WeatherContextProvider = (props) => {
     const [city, setCity] = useState('')
     const [id, setId] = useState('')
+    const [error, setError] = useState('')
    
      
 
       return (
-          <WeatherContext.Provider value={{city, setCity, id, setId}}>
+          <WeatherContext.Provider value={{city, setCity, id, setId, error, setError}}>
               {props.children}
           </WeatherContext.Provider>
       )

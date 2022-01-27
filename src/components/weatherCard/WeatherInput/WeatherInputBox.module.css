@@ -1,6 +1,8 @@
 .weatherInputBox {
-    border-bottom: 2px rgba(65, 63, 63, 0.219) solid;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    margin: 5rem 2rem 0rem 2rem;
 } 
+

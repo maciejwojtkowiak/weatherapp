@@ -1,43 +1,41 @@
 import { useState } from "react"
 import { WeatherContext } from "../../store/weather-context"
-import { useContext, } from "react"
+import { useContext} from "react"
 
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('')
     const weatherCtx = useContext(WeatherContext)
 
-    const getCityData = (url) => {
+    const getCityData = async (url) => {
         setIsLoading(true)
-        const fetchCity = async () => {
-            const response  = await fetch(url)
-            if (!response.ok) {
-                throw new Error('City was not found.')
-            }
-            const data = await response.json()
-            return data
-            
-          }
+        weatherCtx.setError(null)
+        
 
           try {
-            fetchCity().then(res => {
-                console.log(res)
-                weatherCtx.setCity(res)
-                weatherCtx.setId(res.weather[0].id)
-                setIsLoading(false)
+                const response  = await fetch(url)
                 
-            })
+                if (!response.ok) {
+                    setIsLoading(false)
+                    throw new Error('City was not found.')
+                }
+                const data = await response.json()
+                console.log(data)
+                weatherCtx.setCity(data)
+                weatherCtx.setId(data.weather[0].id)
+                setIsLoading(false)
+                weatherCtx.setError(false)
+                
           } catch (err) {
-              console.log(err)
               setIsLoading(false)
+              weatherCtx.setError(true)
           }
 
 
     }
+
        
           return {
               isLoading,
-              error,
               getCityData,
               
           }
