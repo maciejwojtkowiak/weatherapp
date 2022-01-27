@@ -10,12 +10,12 @@ const WeatherContextProvider = (props) => {
     const [city, setCity] = useState('')
     const [id, setId] = useState('')
     const [error, setError] = useState(false)
-    const [isClicked, setIsClicked] = useState(false)
+    const [loading, setLoading] = useState(false)
    
      
 
       return (
-          <WeatherContext.Provider value={{city, setCity, id, setId, error, setError, isClicked, setIsClicked}}>
+          <WeatherContext.Provider value={{city, setCity, id, setId, error, setError, loading, setLoading}}>
               {props.children}
           </WeatherContext.Provider>
       )
