@@ -1,0 +1,45 @@
+.weather-appear {
+    opacity: 0;
+    transition: opacity 100ms;
+}
+
+.weather-enter {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+  .weather-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .weather-exit {
+    opacity: 0;
+    
+  }
+  .weather-exit-active {
+    opacity: 0;
+    
+  }
+
+  .weather-exit-done {
+      opacity: 0;
+      transition: opacity 100ms;
+  }
+
+  .error-enter {
+    opacity: 0;
+    transition: opacity100ms;
+  }
+  .error-enter-active {
+    opacity: 1;
+    transition: opacity 100ms;
+  }
+  .error-exit {
+    transition: all 0ms;
+    opacity: 0;
+    
+  }
+  .error-exit-active {
+    opacity: 0;
+    
+  }
+

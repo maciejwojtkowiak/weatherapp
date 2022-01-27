@@ -1,7 +1,10 @@
 import styles from './WeatherDataBox.module.css'
-import React, { useContext  } from 'react'
+import React, { useContext, useState } from 'react'
 import { WeatherContext } from '../../../store/weather-context'
 import WeatherDetailBox from './WeatherDetailBox'
+import {CSSTransition} from 'react-transition-group'
+import './WeatherDataBox.css'
+import useHttp from '../../hooks/use-http'
 import {
     WiDayThunderstorm, 
     WiDayRainMix, 
@@ -18,10 +21,25 @@ import {
 
 
 const WeatherDataBox = () => {
+    let content;
     let icon;
     let ICON_SIZE = 256
     let VIEWBOX = "5 5 20 20"
+    let success = false;
+    let error = false;
     const weatherCtx = useContext(WeatherContext);
+    const [isWeatherMounted, setWeatherIsMounted] = useState(false)
+    const [errorIsMounted, setErrorIsMounted] = useState(false)
+    const [isInitial, setIsInitial] = useState(true)
+
+    const {isLoading} = useHttp()
+
+    if (weatherCtx.city) {
+        success = weatherCtx.city && !weatherCtx.error && errorIsMounted === false
+    }
+
+    error = !!weatherCtx.error && isWeatherMounted === false
+
 
     const atmosphereIcons = () => {
         if ((weatherCtx.id === 701)) icon=<WiFog viewbox={VIEWBOX} size={ICON_SIZE} /> // Mist
@@ -50,29 +68,66 @@ const WeatherDataBox = () => {
 
     }
 
-    let content;
+   
 
     if (weatherCtx.error) {
-        content = "City not found, try again."
+        content = (<p>City not found, try again.</p>)
     }
+
+    if (success) {
+        content = (
+                <div>
+                <div className={styles.icon} >{icon}</div>
+                    <p className={styles.description}>{weatherCtx.city.name}</p>
+                    <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
+                <WeatherDetailBox />
+                </div>
+            
+                    
+            
+            
+        )
+    }
+    
+
 
    
     
 
     return(
         <React.Fragment>
-            {weatherCtx.error && <div className={styles.error}>{content}</div>}
-            { weatherCtx.city && !weatherCtx.error && 
-                <div className={styles.weatherDataBox}>
-                    <div className={styles.icon} >{icon}</div>
-                    <p className={styles.description}>{weatherCtx.city.name}</p>
-                    <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
-                    <WeatherDetailBox />
-                </div>
-            }
-
-            
+            <div className={styles.weatherDataBox}>
+            <CSSTransition mountOnEnter unmountOnExit in={error} timeout={500} classNames='error' 
+            onEnter={() => {
+                if (isInitial) {
+                    setErrorIsMounted(true)
+                    setIsInitial(false)
+                }
+            }} 
+            onExited={() => {
+                setErrorIsMounted(false) 
+                setWeatherIsMounted(true)
+                }} >
+            <div>{content}</div>
+               
+            </CSSTransition>
+            <CSSTransition mountOnEnter unmountOnExit in={success}  timeout={500} classNames='weather' 
+            onEnter={() => {
+                if (isInitial) {
+                    setWeatherIsMounted(true)
+                    setIsInitial(false)
+                }
+            }} 
+            onExited={() => {
+                setWeatherIsMounted(false)
+                setErrorIsMounted(true)
+            }}>
+            <div className={styles.weatherDataBox}>{content}</div>
+            </CSSTransition>
+            </div>
         </React.Fragment>
+            
+       
         
     )
 }
