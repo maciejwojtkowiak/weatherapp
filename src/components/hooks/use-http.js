@@ -8,6 +8,7 @@ const useHttp = () => {
 
     const getCityData = async (url) => {
         setIsLoading(true)
+        weatherCtx.setLoading(true)
         weatherCtx.setError(null)
         
 
@@ -23,10 +24,12 @@ const useHttp = () => {
                 weatherCtx.setCity(data)
                 weatherCtx.setId(data.weather[0].id)
                 setIsLoading(false)
+                weatherCtx.setLoading(false)
                 weatherCtx.setError(false)
                 
           } catch (err) {
               setIsLoading(false)
+              weatherCtx.setLoading(false)
               weatherCtx.setError(true)
           }
 

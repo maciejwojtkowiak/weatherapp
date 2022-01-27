@@ -11,9 +11,6 @@ const WeatherForm = (props) => {
     const api_key = '5fc53b4163498db65d6329e64f584aea'
     const {isLoading, getCityData} = useHttp()
     const weatherCtx = useContext(WeatherContext)
-    const onClickHandler = () => {
-        weatherCtx.setIsClicked(true)
-    }
 
 
     const onSubmitHandler =  (e) =>{
@@ -37,12 +34,12 @@ const WeatherForm = (props) => {
                 <form  onSubmit={onSubmitHandler}>
                     <div className={styles.form}>   
                         <input ref={locationInputRef} type="text" />
-                        <button className={`${styles.formButton} ${styles.getButton}`} onClick={onClickHandler} type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
+                        <button className={`${styles.formButton} ${styles.getButton}`}  type='submit'>{isLoading  ? 'is loading...' : 'Get weather'}</button>
                     </div>
                 </form>
                 <form onSubmit={onSubmitHandlerRandom}>
                     <div className={styles.form}>   
-                        <button className={`${styles.formButton} ${styles.randomButton}` } onClick={onClickHandler} type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
+                        <button className={`${styles.formButton} ${styles.randomButton}` } type='submit'>{isLoading  ? 'is loading...' : 'Get your location'}</button>
                     </div>
                 </form>
             </div>

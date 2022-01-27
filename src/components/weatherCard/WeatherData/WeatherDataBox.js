@@ -2,7 +2,7 @@ import styles from './WeatherDataBox.module.css'
 import React, { useContext, useState } from 'react'
 import { WeatherContext } from '../../../store/weather-context'
 import WeatherDetailBox from './WeatherDetailBox'
-import {CSSTransition} from 'react-transition-group'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import './WeatherDataBox.css'
 import useHttp from '../../hooks/use-http'
 import {
@@ -32,10 +32,10 @@ const WeatherDataBox = () => {
     const [errorIsMounted, setErrorIsMounted] = useState(false)
     const [isInitial, setIsInitial] = useState(true)
 
-    const {isLoading} = useHttp()
+    
 
     if (weatherCtx.city) {
-        success = weatherCtx.city && !weatherCtx.error && errorIsMounted === false
+        success = weatherCtx.city && !weatherCtx.error && errorIsMounted === false && !weatherCtx.loading
     }
 
     error = !!weatherCtx.error && isWeatherMounted === false
@@ -108,10 +108,13 @@ const WeatherDataBox = () => {
                 setErrorIsMounted(false) 
                 setWeatherIsMounted(true)
                 }} >
-            <div>{content}</div>
+            <div className={styles.error}>{content}</div>
                
             </CSSTransition>
-            <CSSTransition mountOnEnter unmountOnExit in={success}  timeout={500} classNames='weather' 
+            <TransitionGroup>
+
+            </TransitionGroup>
+            <CSSTransition key={weatherCtx.city.name} mountOnEnter unmountOnExit in={success}  timeout={500} classNames='weather' 
             onEnter={() => {
                 if (isInitial) {
                     setWeatherIsMounted(true)
