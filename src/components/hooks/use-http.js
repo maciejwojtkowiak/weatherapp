@@ -3,11 +3,9 @@ import { WeatherContext } from "../../store/weather-context"
 import { useContext} from "react"
 
 const useHttp = () => {
-    const [isLoading, setIsLoading] = useState(false)
     const weatherCtx = useContext(WeatherContext)
 
     const getCityData = async (url) => {
-        setIsLoading(true)
         weatherCtx.setLoading(true)
         weatherCtx.setError(null)
         
@@ -20,15 +18,12 @@ const useHttp = () => {
                     throw new Error('City was not found.')
                 }
                 const data = await response.json()
-                console.log(data)
                 weatherCtx.setCity(data)
                 weatherCtx.setId(data.weather[0].id)
-                setIsLoading(false)
                 weatherCtx.setLoading(false)
                 weatherCtx.setError(false)
                 
           } catch (err) {
-              setIsLoading(false)
               weatherCtx.setLoading(false)
               weatherCtx.setError(true)
           }
@@ -38,9 +33,7 @@ const useHttp = () => {
 
        
           return {
-              isLoading,
               getCityData,
-              
           }
     }
 
