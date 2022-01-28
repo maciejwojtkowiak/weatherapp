@@ -34,10 +34,10 @@ const WeatherDataBox = () => {
     
 
     if (weatherCtx.city) {
-        success = weatherCtx.city && !weatherCtx.error && errorIsMounted === false && !weatherCtx.loading
+        success = weatherCtx.city && !weatherCtx.error && !errorIsMounted && !weatherCtx.loading
     }
 
-    error = !!weatherCtx.error && isWeatherMounted === false
+    error = weatherCtx.error && !isWeatherMounted
 
 
     const atmosphereIcons = () => {
