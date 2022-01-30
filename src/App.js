@@ -8,11 +8,11 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className='App'>
+      
         <Background>
           <WeatherBox />
         </Background>
-      </div>
+      
   
     </React.Fragment>
   );

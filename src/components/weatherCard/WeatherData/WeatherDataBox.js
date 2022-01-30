@@ -4,7 +4,6 @@ import { WeatherContext } from '../../../store/weather-context'
 import WeatherDetailBox from './WeatherDetailBox'
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import './WeatherDataBox.css'
-import useHttp from '../../hooks/use-http'
 import {
     WiDayThunderstorm, 
     WiDayRainMix, 
@@ -35,10 +34,10 @@ const WeatherDataBox = () => {
     
 
     if (weatherCtx.city) {
-        success = weatherCtx.city && !weatherCtx.error && errorIsMounted === false && !weatherCtx.loading
+        success = weatherCtx.city && !weatherCtx.error && !errorIsMounted && !weatherCtx.loading
     }
 
-    error = !!weatherCtx.error && isWeatherMounted === false
+    error = weatherCtx.error && !isWeatherMounted
 
 
     const atmosphereIcons = () => {
@@ -69,34 +68,25 @@ const WeatherDataBox = () => {
     }
 
    
-
     if (weatherCtx.error) {
         content = (<p>City not found, try again.</p>)
     }
 
     if (success) {
         content = (
-                <div>
-                <div className={styles.icon} >{icon}</div>
-                    <p className={styles.description}>{weatherCtx.city.name}</p>
-                    <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
-                <WeatherDetailBox />
-                </div>
-            
-                    
-            
+                <React.Fragment>
+                     <div className={styles.icon} >{icon}</div>
+                        <p className={styles.description}>{weatherCtx.city.name}</p>
+                        <p className={styles.description}>{weatherCtx.city.weather[0].main}</p>
+                    <WeatherDetailBox />
+                </React.Fragment>
             
         )
     }
     
-
-
-   
-    
-
     return(
         <React.Fragment>
-            <div className={styles.weatherDataBox}>
+           
             <CSSTransition mountOnEnter unmountOnExit in={error} timeout={500} classNames='error' 
             onEnter={() => {
                 if (isInitial) {
@@ -127,7 +117,7 @@ const WeatherDataBox = () => {
             }}>
             <div className={styles.weatherDataBox}>{content}</div>
             </CSSTransition>
-            </div>
+            
         </React.Fragment>
             
        
